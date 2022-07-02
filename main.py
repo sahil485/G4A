@@ -13,31 +13,27 @@ knownNames = []
 for (i, imageName) in enumerate(imagePaths):
     name = imageName.split('.')[0]
     image = cv2.imread(os.path.join(imageDir, imageName))
-    print(image.shape)
-    # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image = cv2.resize(image, (200, 200))
-    # print(image.shape)
+    # image = cv2.resize(image, (224, 224))
 
-    # cv2.imshow('img', image)
-    # cv2.waitKey(5000)
-
-    boxes = face_recognition.face_locations(image, model='cnn')
+    boxes = face_recognition.face_locations(image, model='hog')
     print("Boxes:", boxes)
 
-    for box in boxes:
-        y1, x2, y2, x1 = box
-        image = cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-    
-    cv2.imshow('image', image)
-    cv2.waitKey(0)
-    
     encodings = face_recognition.face_encodings(image, boxes)
     print("Encodings:", encodings)
 
     for encoding in encodings:  
         knownEncodings.append(encoding)
         knownNames.append(name)
+    
+    for box in boxes:
+        y1, x2, y2, x1 = box
+        image = cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
+    
+    cv2.imshow('image', image)
+    cv2.waitKey(0)
 
 data = {"encodings": knownEncodings, "names": knownNames}
 
-print(data)
+f = open("face_enc", "wb")
+f.write(pickle.dumps(data))
+f.close()
