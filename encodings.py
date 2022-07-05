@@ -14,7 +14,7 @@ for (i, imageName) in enumerate(imagePaths):
     image = cv2.imread(os.path.join(imageDir, imageName))
     # image = cv2.resize(image, (224, 224))
 
-    boxes = face_recognition.face_locations(image, model='cnn')
+    boxes = face_recognition.face_locations(image, model='hog')
     print("Boxes:", boxes)
 
     encodings = face_recognition.face_encodings(image, boxes)
@@ -24,12 +24,12 @@ for (i, imageName) in enumerate(imagePaths):
     #     knownEncodings.append(encoding)
     #     knownNames.append(name)
 
+    assert len(boxes) == len(encodings)
+    print("[INFO] Name: {} Number of Boxes: {} Number of Encodings: {}".format(name, len(boxes), len(encodings)))
+    
     # Add first encoding (probably for biggest face)
     knownEncodings.append(encodings[0])
     knownNames.append(name)
-
-    assert len(boxes) == len(encodings)
-    print("[INFO] Name: {} Number of Boxes: {} Number of Encodings: {}".format(name, len(boxes), len(encodings)))
     
     for box in boxes:
         y1, x2, y2, x1 = box
