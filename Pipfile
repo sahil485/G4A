@@ -9,6 +9,7 @@ pandas = "*"
 cmake = "*"
 dlib = "*"
 face-recognition = "*"
+imutils = "*"
 
 [dev-packages]
 

@@ -15,13 +15,13 @@ for (i, imageName) in enumerate(imagePaths):
     image = cv2.imread(os.path.join(imageDir, imageName))
     print(image.shape)
     # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image = cv2.resize(image, (200, 200))
+    # image = cv2.resize(image, (900,900))
     # print(image.shape)
 
     cv2.imshow('img', image)
     # cv2.waitKey(5000)
 
-    boxes = face_recognition.face_locations(image, model='cnn')
+    boxes = face_recognition.face_locations(image, model='hog')
     print("Boxes:", boxes)
 
     for box in boxes:
@@ -44,3 +44,6 @@ for (i, imageName) in enumerate(imagePaths):
 data = {"encodings": knownEncodings, "names": knownNames}
 
 print(data)
+f = open("face_enc", "wb")
+f.write(pickle.dumps(data))
+f.close()
