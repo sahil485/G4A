@@ -7,7 +7,7 @@ import os
 data = pickle.loads(open('face_enc', "rb").read())
 print(data)
 
-video_capture = cv2.VideoCapture(1)
+video_capture = cv2.VideoCapture(0)
 ret, image = video_capture.read()
 
 faces = face_recognition.face_locations(image, model='hog')
