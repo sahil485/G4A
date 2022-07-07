@@ -36,13 +36,8 @@ for (i, imageName) in enumerate(imagePaths):
         y1, x2, y2, x1 = box
         image = cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
     
-<<<<<<< Updated upstream
     # cv2.imshow('image', image)
     # cv2.waitKey(0)
-=======
-    cv2.imshow(imageName.split('.')[0], image)
-    cv2.waitKey(0)
->>>>>>> Stashed changes
 
 data = {"encodings": knownEncodings, "names": knownNames}
 
