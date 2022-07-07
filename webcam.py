@@ -51,7 +51,7 @@ while True:
             #set name which has highest count
             name = max(counts, key=counts.get)
 
-    names.append(name)
+        names.append(name)
 
     for (face, name) in zip(faces, names):
         # rescale the face coordinates
