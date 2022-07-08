@@ -5,7 +5,7 @@ import cv2
 import os
 
 data = pickle.loads(open('face_enc', "rb").read())
-print(data)
+# print(data)
 
 video_capture = cv2.VideoCapture(0)
 ret, image = video_capture.read()

@@ -13,6 +13,16 @@ faceCascade = cv2.CascadeClassifier(cascPathface)
 data = pickle.loads(open('face_enc', "rb").read())
 
 video_capture = cv2.VideoCapture(0)
+# for i in range(1,501):
+#     try:
+#         cap = cv2.VideoCapture(i)
+#         ret, frame = cap.read()
+#         cv2.imshow(f"Capture-{i}", frame)
+#         if cv2.waitKey(1) & 0xFF == ord('q'):
+#             break
+#     except:
+#         print(i)
+
 while True:
     # grab the frame from the threaded video stream
     ret, frame = video_capture.read()
