@@ -57,7 +57,7 @@ while True:
         # rescale the face coordinates
         # draw the predicted face name on the image
         frame = cv2.rectangle(frame, face, color=(0, 255, 0), thickness=2)
-        cv2.putText(frame, name, (face[-1], face[0]), cv2.FONT_HERSHEY_SIMPLEX,
+        cv2.putText(frame, name, (face[0], face[1]), cv2.FONT_HERSHEY_SIMPLEX,
             0.75, (0, 255, 0), 2)
  
     # convert the input frame from BGR to RGB 

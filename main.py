@@ -30,6 +30,7 @@ for encoding in encodings:
 
     if True in matches:
         matchedIdxs = [i for (i, b) in enumerate(matches) if b]
+        print(matchedIdxs)
         counts = {}
         # loop over the matched indexes and maintain a count for
         # each recognized face face
