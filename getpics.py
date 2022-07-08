@@ -1,7 +1,7 @@
 import cv2
 import time
 
-stream = cv2.VideoCapture(1)
+stream = cv2.VideoCapture(0)
 while True:
     name = input("Enter name: ")
     for i in range(30):
