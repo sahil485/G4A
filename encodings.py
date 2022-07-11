@@ -11,7 +11,7 @@ knownNames = []
 
 for (i, imageName) in enumerate(imagePaths):
     print(imageName)
-    name = imageName.split('.')[0].split('-')[0]
+    name = imageName.split('.')[0].split('-')[0].capitalize()
     image = cv2.imread(os.path.join(imageDir, imageName))
     # image = cv2.resize(image, (224, 224))
 
