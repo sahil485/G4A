@@ -9,6 +9,7 @@ pandas = "*"
 cmake = "*"
 dlib = "*"
 face-recognition = "*"
+pyfirmata = "*"
 
 [dev-packages]
 
