@@ -10,6 +10,8 @@ cmake = "*"
 dlib = "*"
 face-recognition = "*"
 imutils = "*"
+psycopg = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
