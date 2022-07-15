@@ -42,7 +42,6 @@ def find_faces():
                 counts[name] = counts.get(name, 0) + 1
                 #set name which has highest count
             name = max(counts, key=counts.get)
-            
             names.append(name)
 
     for ((y1, x2, y2, x1), name) in zip(faces, names):
@@ -57,4 +56,4 @@ def find_faces():
 
     return names
 
-find_faces()
+# find_faces()
